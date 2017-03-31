@@ -15,6 +15,6 @@ int main()
 	
 	root.DumpToPNG("test4");
 	
-	system("pause");
+	system("pause");/////hyumoi
 	return 0;
 }
