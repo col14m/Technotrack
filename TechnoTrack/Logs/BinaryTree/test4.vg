@@ -1,0 +1,145 @@
+digraph BinaryTreeNode {
+node [color = "green", fontname = "Calibri", fontsize = 12, shape = "rectangle", style = "filled", fillcolor = "#caff70"]; 
+
+BinaryTreeNode0x003AFC94
+[label = "BinaryTreeNode(ok) [0x003AFC94]
+[0x003AFC9C] data_ : 
+NodeValue (ok) [0x003AFC9C] :
+	type_	: 3
+	data_[int] : 0
+	data_[str] : +
+[0x003FA978] leftNode
+[0x003FAA68] rightNode
+"];
+BinaryTreeNode0x003AFC94
+BinaryTreeNode0x003AFC94->BinaryTreeNode0x003FA978
+
+BinaryTreeNode0x003FA978
+[label = "BinaryTreeNode(ok) [0x003FA978]
+[0x003FA980] data_ : 
+NodeValue (ok) [0x003FA980] :
+	type_	: 3
+	data_[int] : 0
+	data_[str] : *
+[0x003FA9C8] leftNode
+[0x003FAA18] rightNode
+"];
+BinaryTreeNode0x003FA978
+BinaryTreeNode0x003FA978->BinaryTreeNode0x003FA9C8
+
+BinaryTreeNode0x003FA9C8
+[label = "BinaryTreeNode(ok) [0x003FA9C8]
+[0x003FA9D0] data_ : 
+NodeValue (ok) [0x003FA9D0] :
+	type_	: 1
+	data_[int] : 5
+	data_[str] : 
+[0x00000000] leftNode
+[0x00000000] rightNode
+"];
+BinaryTreeNode0x003FA9C8
+BinaryTreeNode0x003FA978->BinaryTreeNode0x003FAA18
+
+BinaryTreeNode0x003FAA18
+[label = "BinaryTreeNode(ok) [0x003FAA18]
+[0x003FAA20] data_ : 
+NodeValue (ok) [0x003FAA20] :
+	type_	: 1
+	data_[int] : 10
+	data_[str] : 
+[0x00000000] leftNode
+[0x00000000] rightNode
+"];
+BinaryTreeNode0x003FAA18
+BinaryTreeNode0x003AFC94->BinaryTreeNode0x003FAA68
+
+BinaryTreeNode0x003FAA68
+[label = "BinaryTreeNode(ok) [0x003FAA68]
+[0x003FAA70] data_ : 
+NodeValue (ok) [0x003FAA70] :
+	type_	: 3
+	data_[int] : 0
+	data_[str] : /
+[0x003FBFF8] leftNode
+[0x003FC188] rightNode
+"];
+BinaryTreeNode0x003FAA68
+BinaryTreeNode0x003FAA68->BinaryTreeNode0x003FBFF8
+
+BinaryTreeNode0x003FBFF8
+[label = "BinaryTreeNode(ok) [0x003FBFF8]
+[0x003FC000] data_ : 
+NodeValue (ok) [0x003FC000] :
+	type_	: 3
+	data_[int] : 0
+	data_[str] : *
+[0x003FC048] leftNode
+[0x003FC098] rightNode
+"];
+BinaryTreeNode0x003FBFF8
+BinaryTreeNode0x003FBFF8->BinaryTreeNode0x003FC048
+
+BinaryTreeNode0x003FC048
+[label = "BinaryTreeNode(ok) [0x003FC048]
+[0x003FC050] data_ : 
+NodeValue (ok) [0x003FC050] :
+	type_	: 1
+	data_[int] : 2
+	data_[str] : 
+[0x00000000] leftNode
+[0x00000000] rightNode
+"];
+BinaryTreeNode0x003FC048
+BinaryTreeNode0x003FBFF8->BinaryTreeNode0x003FC098
+
+BinaryTreeNode0x003FC098
+[label = "BinaryTreeNode(ok) [0x003FC098]
+[0x003FC0A0] data_ : 
+NodeValue (ok) [0x003FC0A0] :
+	type_	: 3
+	data_[int] : 0
+	data_[str] : +
+[0x003FC0E8] leftNode
+[0x003FC138] rightNode
+"];
+BinaryTreeNode0x003FC098
+BinaryTreeNode0x003FC098->BinaryTreeNode0x003FC0E8
+
+BinaryTreeNode0x003FC0E8
+[label = "BinaryTreeNode(ok) [0x003FC0E8]
+[0x003FC0F0] data_ : 
+NodeValue (ok) [0x003FC0F0] :
+	type_	: 1
+	data_[int] : 10
+	data_[str] : 
+[0x00000000] leftNode
+[0x00000000] rightNode
+"];
+BinaryTreeNode0x003FC0E8
+BinaryTreeNode0x003FC098->BinaryTreeNode0x003FC138
+
+BinaryTreeNode0x003FC138
+[label = "BinaryTreeNode(ok) [0x003FC138]
+[0x003FC140] data_ : 
+NodeValue (ok) [0x003FC140] :
+	type_	: 1
+	data_[int] : 5
+	data_[str] : 
+[0x00000000] leftNode
+[0x00000000] rightNode
+"];
+BinaryTreeNode0x003FC138
+BinaryTreeNode0x003FAA68->BinaryTreeNode0x003FC188
+
+BinaryTreeNode0x003FC188
+[label = "BinaryTreeNode(ok) [0x003FC188]
+[0x003FC190] data_ : 
+NodeValue (ok) [0x003FC190] :
+	type_	: 1
+	data_[int] : 2
+	data_[str] : 
+[0x00000000] leftNode
+[0x00000000] rightNode
+"];
+BinaryTreeNode0x003FC188
+}

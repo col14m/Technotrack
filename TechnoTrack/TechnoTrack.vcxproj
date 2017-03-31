@@ -18,9 +18,17 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Code\testTree.cpp" />
+    <ClCompile Include="Tests\BinaryTree_TEST.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Include\BinaryTree.h" />
+    <ClInclude Include="Include\NodeValue.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{DAE0C070-3636-4831-9245-7F50A3535C75}</ProjectGuid>
-    <RootNamespace>TechnoTrack</RootNamespace>
+    <RootNamespace>Tex</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -109,8 +117,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
