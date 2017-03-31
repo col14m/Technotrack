@@ -6,7 +6,7 @@
 
 int main()
 {
-	typedef BinaryTreeNode Node;////////
+	typedef BinaryTreeNode Node;////////brbtrgtrgtrhtrrtg
 
 	
 	Node t1(NodeValue(NUMBER, 5)), t2(NodeValue(NUMBER, 10)), t3(NodeValue(NUMBER, 2));
