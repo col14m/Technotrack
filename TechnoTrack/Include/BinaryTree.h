@@ -318,3 +318,14 @@ BinaryTreeNode &operator/(BinaryTreeNode &A, BinaryTreeNode &B)
 
 	return *nowNode;
 }
+
+BinaryTreeNode &operator^(BinaryTreeNode &A, BinaryTreeNode &B)
+{
+	NodeValue sum(OPERAND, "^");
+	BinaryTreeNode *nowNode = new BinaryTreeNode(sum);
+
+	nowNode->InsertLeft(A);
+	nowNode->InsertRight(B);
+
+	return *nowNode;
+}

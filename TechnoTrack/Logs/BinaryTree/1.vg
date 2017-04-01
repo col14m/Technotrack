@@ -1,0 +1,65 @@
+digraph BinaryTreeNode {
+node [color = "green", fontname = "Calibri", fontsize = 12, shape = "rectangle", style = "filled", fillcolor = "#caff70"]; 
+
+BinaryTreeNode0x0000003D77BDCA30
+[label = "BinaryTreeNode(ok) 
+	type_	: 3
+	data_[int] : 0
+	data_[str] : *
+"];
+BinaryTreeNode0x0000003D77BDCA30
+BinaryTreeNode0x0000003D77BDCA30->BinaryTreeNode0x0000003D77BD8840
+
+BinaryTreeNode0x0000003D77BD8840
+[label = "BinaryTreeNode(ok) 
+	type_	: 3
+	data_[int] : 0
+	data_[str] : *
+"];
+BinaryTreeNode0x0000003D77BD8840
+BinaryTreeNode0x0000003D77BD8840->BinaryTreeNode0x0000003D77A5F828
+
+BinaryTreeNode0x0000003D77A5F828
+[label = "BinaryTreeNode(ok) 
+	type_	: 3
+	data_[int] : 0
+	data_[str] : ^
+"];
+BinaryTreeNode0x0000003D77A5F828
+BinaryTreeNode0x0000003D77A5F828->BinaryTreeNode0x0000003D77BD8680
+
+BinaryTreeNode0x0000003D77BD8680
+[label = "BinaryTreeNode(ok) 
+	type_	: 2
+	data_[int] : 0
+	data_[str] : x
+"];
+BinaryTreeNode0x0000003D77BD8680
+BinaryTreeNode0x0000003D77A5F828->BinaryTreeNode0x0000003D77BD86F0
+
+BinaryTreeNode0x0000003D77BD86F0
+[label = "BinaryTreeNode(ok) 
+	type_	: 1
+	data_[int] : 1
+	data_[str] : 
+"];
+BinaryTreeNode0x0000003D77BD86F0
+BinaryTreeNode0x0000003D77BD8840->BinaryTreeNode0x0000003D77A5F268
+
+BinaryTreeNode0x0000003D77A5F268
+[label = "BinaryTreeNode(ok) 
+	type_	: 1
+	data_[int] : 2
+	data_[str] : 
+"];
+BinaryTreeNode0x0000003D77A5F268
+BinaryTreeNode0x0000003D77BDCA30->BinaryTreeNode0x0000003D77BD87D0
+
+BinaryTreeNode0x0000003D77BD87D0
+[label = "BinaryTreeNode(ok) 
+	type_	: 1
+	data_[int] : 1
+	data_[str] : 1
+"];
+BinaryTreeNode0x0000003D77BD87D0
+}

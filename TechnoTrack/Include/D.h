@@ -40,6 +40,14 @@ BinaryTreeNode& d(BinaryTreeNode& tree)
 			strcpy(VAL, "cos");
 			return tree * d(C(L));
 		}
+		else if (VAL[0] == '^')
+		{
+			BinaryTreeNode *Tmp = &C(R);
+			tree.GetRightNode()->GetValue().intData_--;
+			//((tree * Tmp) * d(C(L))).DumpToPNG("test");
+			return  ((tree * *Tmp) * d(C(L)));
+		}
+			
 
 
 	}
