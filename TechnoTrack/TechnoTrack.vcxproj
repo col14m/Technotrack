@@ -19,11 +19,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\c_vim\diff\diff.c" />
     <ClCompile Include="Code\testTree.cpp" />
     <ClCompile Include="Tests\BinaryTree_TEST.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Include\BinaryTree.h" />
+    <ClInclude Include="Include\D.h" />
     <ClInclude Include="Include\NodeValue.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

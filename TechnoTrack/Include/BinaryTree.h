@@ -22,7 +22,10 @@ public:
 
 	BinaryTreeNode *GetLeftNode();
 	BinaryTreeNode *GetRightNode();
-	NodeValue &GetValue();
+	NodeValue &GetValue()
+	{
+		return data_;
+	}
 
 	void InsertLeft(BinaryTreeNode &leftBinaryTreeNode);
 	void InsertLeft(BinaryTreeNode *leftBinaryTreeNode);
@@ -152,21 +155,13 @@ bool BinaryTreeNode::HaveChild() const
 
 BinaryTreeNode *BinaryTreeNode::GetLeftNode()
 {
-	assert(HaveLeftChild());
 	return leftNode_;
 }
 
 BinaryTreeNode *BinaryTreeNode::GetRightNode()
 {
-	assert(HaveRightChild());
 	return rightNode_;
 }
-
-NodeValue &BinaryTreeNode::GetValue()
-{
-	return data_;
-}
-
 
 void BinaryTreeNode::InsertLeft(BinaryTreeNode *leftBinaryTreeNode)
 {
@@ -209,7 +204,7 @@ void ConvertVGtoPNG(char *logPNGname)
 	strcpy_s(fullOutPNGname, 40, logPNGname);
 	strcat_s(fullOutPNGname, 40, ".png");
 
-	fprintf(nowBat, "D:\\graphviz-2.38\\release\\bin\\dot ");
+	fprintf(nowBat, "E:\\Graphviz2.38\\bin\\dot ");
 	fprintf(nowBat, "-Tpng \"%%CD%%\\Logs\\BinaryTree\\%s\" ", fullInPNGname);
 	fprintf(nowBat, "   -o \"%%CD%%\\Logs\\BinaryTree\\%s\" \n", fullOutPNGname);
 
