@@ -85,7 +85,7 @@ void BinaryTreeNode::Dump() const
 	data_.Dump();
 }
 
-void BinaryTreeNode::Dump(FILE *log) const
+/*void BinaryTreeNode::Dump(FILE *log) const
 {
 	assert(log);
 
@@ -110,7 +110,67 @@ void BinaryTreeNode::Dump(FILE *log) const
 		fprintf(log, "BinaryTreeNode0x%p->BinaryTreeNode0x%p\n", this, rightNode_);
 		rightNode_->Dump(log);
 	}
+}*/
+
+void BinaryTreeNode::Dump(FILE *log) const
+{
+	assert(log);
+
+	fprintf(log, "\nBinaryTreeNode0x%p\n", this);
+	fprintf(log, "[label = \"BinaryTreeNode(%s) \n", Ok() ? "ok" : "ERROR");
+	//fprintf(log, "[0x%p] data_ : \n", &data_);
+	data_.Dump(log);
+	//fprintf(log, "[0x%p] leftNode\n", leftNode_);
+	fprintf(log, "\"", rightNode_);
+	fprintf(log, "%s];\n", Ok() ? "" : ", color = \"red\", fillcolor = \"#ff7d7d\"");
+
+	fprintf(log, "BinaryTreeNode0x%p\n", this);
+
+	if (HaveLeftChild())
+	{
+		fprintf(log, "BinaryTreeNode0x%p->BinaryTreeNode0x%p\n", this, leftNode_);
+		leftNode_->Dump(log);
+	}
+
+	if (HaveRightChild())
+	{
+		fprintf(log, "BinaryTreeNode0x%p->BinaryTreeNode0x%p\n", this, rightNode_);
+		rightNode_->Dump(log);
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 void BinaryTreeNode::DumpToPNG(char *logPNGname) const
 {

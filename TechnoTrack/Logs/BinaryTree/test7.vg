@@ -1,93 +1,20 @@
 digraph BinaryTreeNode {
 node [color = "green", fontname = "Calibri", fontsize = 12, shape = "rectangle", style = "filled", fillcolor = "#caff70"]; 
 
-BinaryTreeNode0x00000007C382F798
-[label = "BinaryTreeNode(ok) [0x00000007C382F798]
-[0x00000007C382F7A8] data_ : 
-NodeValue (ok) [0x00000007C382F7A8] :
+BinaryTreeNode0x000000C807ACF418
+[label = "BinaryTreeNode(ok) 
 	type_	: 3
 	data_[int] : 0
-	data_[str] : /
-[0x00000007C3988760] leftNode
-[0x00000007C398C9C0] rightNode
+	data_[str] : cos
 "];
-BinaryTreeNode0x00000007C382F798
-BinaryTreeNode0x00000007C382F798->BinaryTreeNode0x00000007C3988760
+BinaryTreeNode0x000000C807ACF418
+BinaryTreeNode0x000000C807ACF418->BinaryTreeNode0x000000C807CE2C90
 
-BinaryTreeNode0x00000007C3988760
-[label = "BinaryTreeNode(ok) [0x00000007C3988760]
-[0x00000007C3988770] data_ : 
-NodeValue (ok) [0x00000007C3988770] :
-	type_	: 3
+BinaryTreeNode0x000000C807CE2C90
+[label = "BinaryTreeNode(ok) 
+	type_	: 2
 	data_[int] : 0
-	data_[str] : *
-[0x00000007C39887D0] leftNode
-[0x00000007C3988840] rightNode
+	data_[str] : x
 "];
-BinaryTreeNode0x00000007C3988760
-BinaryTreeNode0x00000007C3988760->BinaryTreeNode0x00000007C39887D0
-
-BinaryTreeNode0x00000007C39887D0
-[label = "BinaryTreeNode(ok) [0x00000007C39887D0]
-[0x00000007C39887E0] data_ : 
-NodeValue (ok) [0x00000007C39887E0] :
-	type_	: 1
-	data_[int] : 2
-	data_[str] : 
-[0x0000000000000000] leftNode
-[0x0000000000000000] rightNode
-"];
-BinaryTreeNode0x00000007C39887D0
-BinaryTreeNode0x00000007C3988760->BinaryTreeNode0x00000007C3988840
-
-BinaryTreeNode0x00000007C3988840
-[label = "BinaryTreeNode(ok) [0x00000007C3988840]
-[0x00000007C3988850] data_ : 
-NodeValue (ok) [0x00000007C3988850] :
-	type_	: 3
-	data_[int] : 0
-	data_[str] : +
-[0x00000007C398CD40] leftNode
-[0x00000007C398C950] rightNode
-"];
-BinaryTreeNode0x00000007C3988840
-BinaryTreeNode0x00000007C3988840->BinaryTreeNode0x00000007C398CD40
-
-BinaryTreeNode0x00000007C398CD40
-[label = "BinaryTreeNode(ok) [0x00000007C398CD40]
-[0x00000007C398CD50] data_ : 
-NodeValue (ok) [0x00000007C398CD50] :
-	type_	: 1
-	data_[int] : 10
-	data_[str] : 
-[0x0000000000000000] leftNode
-[0x0000000000000000] rightNode
-"];
-BinaryTreeNode0x00000007C398CD40
-BinaryTreeNode0x00000007C3988840->BinaryTreeNode0x00000007C398C950
-
-BinaryTreeNode0x00000007C398C950
-[label = "BinaryTreeNode(ok) [0x00000007C398C950]
-[0x00000007C398C960] data_ : 
-NodeValue (ok) [0x00000007C398C960] :
-	type_	: 1
-	data_[int] : 5
-	data_[str] : 
-[0x0000000000000000] leftNode
-[0x0000000000000000] rightNode
-"];
-BinaryTreeNode0x00000007C398C950
-BinaryTreeNode0x00000007C382F798->BinaryTreeNode0x00000007C398C9C0
-
-BinaryTreeNode0x00000007C398C9C0
-[label = "BinaryTreeNode(ok) [0x00000007C398C9C0]
-[0x00000007C398C9D0] data_ : 
-NodeValue (ok) [0x00000007C398C9D0] :
-	type_	: 1
-	data_[int] : 2
-	data_[str] : 
-[0x0000000000000000] leftNode
-[0x0000000000000000] rightNode
-"];
-BinaryTreeNode0x00000007C398C9C0
+BinaryTreeNode0x000000C807CE2C90
 }

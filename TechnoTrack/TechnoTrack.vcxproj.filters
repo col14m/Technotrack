@@ -27,9 +27,6 @@
     <ClCompile Include="Tests\BinaryTree_TEST.cpp">
       <Filter>Tests</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\c_vim\diff\diff.c">
-      <Filter>Include</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Include\BinaryTree.h">

@@ -19,7 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\c_vim\diff\diff.c" />
     <ClCompile Include="Code\testTree.cpp" />
     <ClCompile Include="Tests\BinaryTree_TEST.cpp" />
   </ItemGroup>
