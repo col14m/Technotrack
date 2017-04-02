@@ -10,7 +10,7 @@ class NodeValue
 {
 public:
 	NodeValue();
-	NodeValue(Type type, char data[16]);
+	NodeValue(Type type, char data[16]);//// 
 	NodeValue(Type type, int data);
 	~NodeValue();
 
