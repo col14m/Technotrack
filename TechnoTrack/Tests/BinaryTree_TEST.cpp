@@ -12,16 +12,17 @@ int main()
 	
 	Node t1(NodeValue(NUMBER, 2)), t2(NodeValue(NUMBER, 2 )), t3 (NodeValue(VARIABLE, "x"));
 	
-	Node root(t2 * t1);
+	Node root(t2 * t1 * t2);
 	//t2.InsertLeft(t3);
 	//root = d(root);
 
 
-	(root).DumpToPNG("test8");
+	(root).DumpToPNG("test8_1");
 	//delete t3;
 	DumpTexTree("test8_1", root);
-
-
+	SimplyfyNode(root);
+	DumpTexTree("test8_2", root);
+	(root).DumpToPNG("test8_2");
 	system("pause");
 	return 0;
 }
