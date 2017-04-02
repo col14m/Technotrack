@@ -2,6 +2,7 @@
 
 #include "BinaryTree.h"
 #include "NodeValue.h"
+#include <iostream>
 
 #define R *tree.GetRightNode() 
 #define L *tree.GetLeftNode()
@@ -10,24 +11,21 @@
 
 BinaryTreeNode& d(BinaryTreeNode& tree)
 {
-	if (tree.GetValue().type_ == NUMBER)
+	NodeValue Val = tree.GetValue();
+	if (Val.type_ == NUMBER)
 	{
-		tree.GetValue().intData_ = 0;
+		Val.intData_ = 0;
 		strcpy(VAL, "0");
-		//tree.GetValue().strData_[0] = '0';
-		//tree.GetValue().strData_[1] = '\0';
 		return tree;
 	} 
-	else if (tree.GetValue().type_ == VARIABLE)
+	else if (Val.type_ == VARIABLE)
 	{
-		tree.GetValue().type_ = NUMBER;
-		tree.GetValue().intData_ = 1;
+		Val.type_ = NUMBER;
+		Val.intData_ = 1;
 		strcpy(VAL, "1");
-		//tree.GetValue().strData_[0] = '1';
-		//tree.GetValue().strData_[1] = '\0';
 		return tree;
 	}
-	else if (tree.GetValue().type_ == OPERAND)
+	else if (Val.type_ == OPERAND)
 	{
 		if (VAL[0] == '+')
 			return d(L) + d(R);
@@ -44,12 +42,23 @@ BinaryTreeNode& d(BinaryTreeNode& tree)
 		}
 		else if (VAL[0] == '^')
 		{
-			BinaryTreeNode *Tmp = &C(R);
+			BinaryTreeNode *NodeR = &C(R);
 			tree.GetRightNode()->GetValue().intData_--;
-			return  ((tree * *Tmp) * d(C(L)));
+			_itoa_s(tree.GetRightNode()->GetValue().intData_, tree.GetRightNode()->GetValue().strData_,  16, 10);
+			return  ((tree * *NodeR) * d(C(L)));
 		}
-			
+		else
+		{
 
+		}
+
+	}
+	else if (Val.type_ == ERRORS)
+	{
+
+	}
+	else if (Val.type_ == EMPTY)
+	{
 
 	}
 

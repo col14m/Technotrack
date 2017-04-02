@@ -8,14 +8,15 @@ int main()
 	typedef BinaryTreeNode Node;
 
 	
-	Node t1(NodeValue(NUMBER, 2)), t2(NodeValue(OPERAND, "sin")), t3 (NodeValue(VARIABLE, "x"));
+	Node t1(NodeValue(NUMBER, 2)),*t2 = new Node(NodeValue(OPERAND, "sin")), t3 (NodeValue(VARIABLE, "x")), *t4 = new Node (NodeValue(VARIABLE, "x")), t5(NodeValue(NUMBER, 2));
 	
-	Node root(t3 * t1);
+	t2->InsertLeft(t4);
+	//Node root(t2);
 	//t2.InsertLeft(t3);
 	//root = d(root);
 
 
-	d(root).DumpToPNG("test7");
+	d(*t2).DumpToPNG("test7");
 	//delete t3;
 	system("pause");/////hyumoi
 	return 0;
