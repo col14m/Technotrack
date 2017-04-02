@@ -3,6 +3,8 @@
 #include <stdlib.h>
 #include "../Include/BinaryTree.h"
 #include "../Include/D.h"
+#include "../Include/Tex.h"
+
 int main()
 {
 	typedef BinaryTreeNode Node;
@@ -18,6 +20,10 @@ int main()
 
 	d(*t2).DumpToPNG("test7");
 	//delete t3;
-	system("pause");/////hyumoi
+	DumpTexTree("test8_1", root);
+	SimplyfyNode(root);
+	DumpTexTree("test8_2", root);
+	(root).DumpToPNG("test8_2");
+	system("pause");
 	return 0;
 }
