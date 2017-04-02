@@ -177,6 +177,7 @@ bool BinaryTreeNode::HaveChild() const
 	return leftNode_ || rightNode_;
 }
 
+
 BinaryTreeNode *BinaryTreeNode::GetLeftNode()
 {
 	return leftNode_;

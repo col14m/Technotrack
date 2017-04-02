@@ -10,8 +10,7 @@ int main()
 	typedef BinaryTreeNode Node;
 
 	
-	Node t1(NodeValue(NUMBER, 2)), t2(NodeValue(NUMBER, 2 )), t3 (NodeValue(VARIABLE, "x"));
-	
+	Node t1 = *new Node (NodeValue(NUMBER, 2)), t2 = *new Node(NodeValue(NUMBER, 2 )), t3 = *new Node(NodeValue(VARIABLE, "x"));
 	Node root(t2 * t1 * t2);
 	//t2.InsertLeft(t3);
 	//root = d(root);
