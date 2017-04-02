@@ -1,65 +1,65 @@
 digraph BinaryTreeNode {
 node [color = "green", fontname = "Calibri", fontsize = 12, shape = "rectangle", style = "filled", fillcolor = "#caff70"]; 
 
-BinaryTreeNode0x0000001A77EECF70
+BinaryTreeNode0x000000519EB0CFE0
+[label = "BinaryTreeNode(ok) 
+	type_	: 3
+	data_[int] : 0
+	data_[str] : +
+"];
+BinaryTreeNode0x000000519EB0CFE0
+BinaryTreeNode0x000000519EB0CFE0->BinaryTreeNode0x000000519EB0CAA0
+
+BinaryTreeNode0x000000519EB0CAA0
 [label = "BinaryTreeNode(ok) 
 	type_	: 3
 	data_[int] : 0
 	data_[str] : *
 "];
-BinaryTreeNode0x0000001A77EECF70
-BinaryTreeNode0x0000001A77EECF70->BinaryTreeNode0x0000001A77EE8840
+BinaryTreeNode0x000000519EB0CAA0
+BinaryTreeNode0x000000519EB0CAA0->BinaryTreeNode0x000000519EB087D0
 
-BinaryTreeNode0x0000001A77EE8840
-[label = "BinaryTreeNode(ok) 
-	type_	: 3
-	data_[int] : 0
-	data_[str] : *
-"];
-BinaryTreeNode0x0000001A77EE8840
-BinaryTreeNode0x0000001A77EE8840->BinaryTreeNode0x0000001A77D5F6C8
-
-BinaryTreeNode0x0000001A77D5F6C8
-[label = "BinaryTreeNode(ok) 
-	type_	: 3
-	data_[int] : 0
-	data_[str] : ^
-"];
-BinaryTreeNode0x0000001A77D5F6C8
-BinaryTreeNode0x0000001A77D5F6C8->BinaryTreeNode0x0000001A77EE8680
-
-BinaryTreeNode0x0000001A77EE8680
-[label = "BinaryTreeNode(ok) 
-	type_	: 2
-	data_[int] : 0
-	data_[str] : x
-"];
-BinaryTreeNode0x0000001A77EE8680
-BinaryTreeNode0x0000001A77D5F6C8->BinaryTreeNode0x0000001A77EE86F0
-
-BinaryTreeNode0x0000001A77EE86F0
-[label = "BinaryTreeNode(ok) 
-	type_	: 1
-	data_[int] : 1
-	data_[str] : 
-"];
-BinaryTreeNode0x0000001A77EE86F0
-BinaryTreeNode0x0000001A77EE8840->BinaryTreeNode0x0000001A77EE8760
-
-BinaryTreeNode0x0000001A77EE8760
-[label = "BinaryTreeNode(ok) 
-	type_	: 1
-	data_[int] : 2
-	data_[str] : 
-"];
-BinaryTreeNode0x0000001A77EE8760
-BinaryTreeNode0x0000001A77EECF70->BinaryTreeNode0x0000001A77EE87D0
-
-BinaryTreeNode0x0000001A77EE87D0
+BinaryTreeNode0x000000519EB087D0
 [label = "BinaryTreeNode(ok) 
 	type_	: 1
 	data_[int] : 1
 	data_[str] : 1
 "];
-BinaryTreeNode0x0000001A77EE87D0
+BinaryTreeNode0x000000519EB087D0
+BinaryTreeNode0x000000519EB0CAA0->BinaryTreeNode0x000000519EB08760
+
+BinaryTreeNode0x000000519EB08760
+[label = "BinaryTreeNode(ok) 
+	type_	: 1
+	data_[int] : 2
+	data_[str] : 2
+"];
+BinaryTreeNode0x000000519EB08760
+BinaryTreeNode0x000000519EB0CFE0->BinaryTreeNode0x000000519EB08840
+
+BinaryTreeNode0x000000519EB08840
+[label = "BinaryTreeNode(ok) 
+	type_	: 3
+	data_[int] : 0
+	data_[str] : *
+"];
+BinaryTreeNode0x000000519EB08840
+BinaryTreeNode0x000000519EB08840->BinaryTreeNode0x000000519EB08680
+
+BinaryTreeNode0x000000519EB08680
+[label = "BinaryTreeNode(ok) 
+	type_	: 2
+	data_[int] : 0
+	data_[str] : x
+"];
+BinaryTreeNode0x000000519EB08680
+BinaryTreeNode0x000000519EB08840->BinaryTreeNode0x000000519EB086F0
+
+BinaryTreeNode0x000000519EB086F0
+[label = "BinaryTreeNode(ok) 
+	type_	: 1
+	data_[int] : 0
+	data_[str] : 0
+"];
+BinaryTreeNode0x000000519EB086F0
 }

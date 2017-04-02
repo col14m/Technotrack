@@ -10,7 +10,7 @@ int main()
 	
 	Node t1(NodeValue(NUMBER, 2)), t2(NodeValue(OPERAND, "sin")), t3 (NodeValue(VARIABLE, "x"));
 	
-	Node root(t3 ^ t1);
+	Node root(t3 * t1);
 	//t2.InsertLeft(t3);
 	//root = d(root);
 
