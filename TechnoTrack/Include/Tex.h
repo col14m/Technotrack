@@ -4,7 +4,7 @@
 #include "NodeValue.h"
 
 #define IS_TYPE(t) (node->GetValue().type_ == t)
-#define IS_OPER(oper) (IS_TYPE( OPERAND ) && !strcmp(node->GetValue().strData_, oper) )
+#define IS_OPER(oper) (IS_TYPE( OPERAND ) && !strcmp(node->GetValue().strData_, oper))
 #define L_VAL (node.GetLeftNode()->GetValue())
 #define R_VAl (node.GetRightNode()->GetValue())
 #define L_L_VAL (node.GetLeftNode()->GetLeftNode()->GetValue())
