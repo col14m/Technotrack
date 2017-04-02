@@ -26,6 +26,7 @@
     <ClInclude Include="Include\BinaryTree.h" />
     <ClInclude Include="Include\D.h" />
     <ClInclude Include="Include\NodeValue.h" />
+    <ClInclude Include="Include\ReadTree.h" />
     <ClInclude Include="Include\Tex.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

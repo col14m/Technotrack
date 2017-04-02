@@ -41,5 +41,8 @@
     <ClInclude Include="Include\Tex.h">
       <Filter>Include</Filter>
     </ClInclude>
+    <ClInclude Include="Include\ReadTree.h">
+      <Filter>Include</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

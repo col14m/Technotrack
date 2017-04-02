@@ -227,14 +227,14 @@ void ConvertVGtoPNG(char *logPNGname)
 	strcpy_s(fullOutPNGname, 40, logPNGname);
 	strcat_s(fullOutPNGname, 40, ".png");
 
-	fprintf(nowBat, "C:\\Graphviz2.38\\bin\\dot ");
+	fprintf(nowBat, "E:\\Graphviz2.38\\bin\\dot ");
 	fprintf(nowBat, "-Tpng \"%%CD%%\\Logs\\BinaryTree\\%s\" ", fullInPNGname);
 	fprintf(nowBat, "   -o \"%%CD%%\\Logs\\BinaryTree\\%s\" \n", fullOutPNGname);
 
 	fclose(nowBat);
 
 	WinExec(".\\Logs\\BinaryTree\\toPNG.bat", SW_HIDE);
-	system("cls");
+	//system("cls");
 }
 
 BinaryTreeNode &operator+(BinaryTreeNode &A, BinaryTreeNode &B)
