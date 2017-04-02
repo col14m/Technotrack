@@ -54,7 +54,9 @@ NodeValue::NodeValue(Type type, int data) :
 	//strData_({})
 {
 	memset(strData_, 0, 16);
+	_itoa_s(data, strData_, 16, 10);
 }
+
 
 NodeValue::~NodeValue()
 {
