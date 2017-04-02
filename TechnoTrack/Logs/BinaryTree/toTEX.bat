@@ -1,0 +1,1 @@
+C:\MiKTeX2.9\miktex\bin\x64\pdflatex.exe "%CD%\Logs\BinaryTree\test8" 

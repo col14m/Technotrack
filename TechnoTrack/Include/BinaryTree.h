@@ -70,7 +70,6 @@ BinaryTreeNode::~BinaryTreeNode()
 	rightNode_ = NULL;
 }
 
-
 bool BinaryTreeNode::Ok() const
 {
 	return true;
@@ -139,39 +138,6 @@ void BinaryTreeNode::Dump(FILE *log) const
 	}
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 void BinaryTreeNode::DumpToPNG(char *logPNGname) const
 {
 	assert(logPNGname);
@@ -196,7 +162,6 @@ void BinaryTreeNode::DumpToPNG(char *logPNGname) const
 	ConvertVGtoPNG(logPNGname);
 }
 
-
 bool BinaryTreeNode::HaveLeftChild() const
 {
 	return leftNode_ != NULL; //C4800, приведение к типу bool 
@@ -211,7 +176,6 @@ bool BinaryTreeNode::HaveChild() const
 {
 	return leftNode_ || rightNode_;
 }
-
 
 BinaryTreeNode *BinaryTreeNode::GetLeftNode()
 {
@@ -247,7 +211,6 @@ void BinaryTreeNode::InsertRight(BinaryTreeNode &rightBinaryTreeNode)
 	rightNode_ = &rightBinaryTreeNode;
 }
 
-
 void ConvertVGtoPNG(char *logPNGname)
 {
 	assert(logPNGname);
@@ -264,7 +227,7 @@ void ConvertVGtoPNG(char *logPNGname)
 	strcpy_s(fullOutPNGname, 40, logPNGname);
 	strcat_s(fullOutPNGname, 40, ".png");
 
-	fprintf(nowBat, "E:\\Graphviz2.38\\bin\\dot ");
+	fprintf(nowBat, "C:\\Graphviz2.38\\bin\\dot ");
 	fprintf(nowBat, "-Tpng \"%%CD%%\\Logs\\BinaryTree\\%s\" ", fullInPNGname);
 	fprintf(nowBat, "   -o \"%%CD%%\\Logs\\BinaryTree\\%s\" \n", fullOutPNGname);
 
@@ -273,7 +236,6 @@ void ConvertVGtoPNG(char *logPNGname)
 	WinExec(".\\Logs\\BinaryTree\\toPNG.bat", SW_HIDE);
 	system("cls");
 }
-
 
 BinaryTreeNode &operator+(BinaryTreeNode &A, BinaryTreeNode &B)
 {
