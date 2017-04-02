@@ -1,1 +1,1 @@
-C:\Graphviz2.38\bin\dot -Tpng "%CD%\Logs\BinaryTree\test8_1.vg"    -o "%CD%\Logs\BinaryTree\test8_1.png" 
+D:\graphviz-2.38\release\bin\dot -Tpng "%CD%\Logs\BinaryTree\test9.vg"    -o "%CD%\Logs\BinaryTree\test9.png" 

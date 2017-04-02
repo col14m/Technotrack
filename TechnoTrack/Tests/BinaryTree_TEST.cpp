@@ -18,12 +18,12 @@ int main()
 	//root = d(root);
 
 
-	d(*t2).DumpToPNG("test7");
+	d(*t2).DumpToPNG("test9");
 	//delete t3;
-	DumpTexTree("test8_1", root);
-	SimplyfyNode(root);
-	DumpTexTree("test8_2", root);
-	(root).DumpToPNG("test8_2");
+	//DumpTexTree("test8_1", root);
+	//SimplyfyNode(root);
+	//DumpTexTree("test8_2", root);
+	//(root).DumpToPNG("test8_2");
 	system("pause");
 	return 0;
 }
