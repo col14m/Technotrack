@@ -19,7 +19,8 @@ int main()
 
 	(root).DumpToPNG("test8");
 	//delete t3;
-	DumpTexTree("test8", root);
+	DumpTexTree("test8_1", root);
+
 
 	system("pause");
 	return 0;

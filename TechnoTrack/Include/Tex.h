@@ -67,9 +67,9 @@ bool DumpTexTree(const char *logTEXname, BinaryTreeNode &node)
 	FILE *nowBat = NULL;
 	fopen_s(&nowBat, ".\\Logs\\BinaryTree\\toTEX.bat", "w");
 	assert(nowBat);
-
-	fprintf(nowBat, "C:\\MiKTeX2.9\\miktex\\bin\\x64\\pdflatex.exe ");
-	fprintf(nowBat, "\"%%CD%%\\Logs\\BinaryTree\\%s\" ", logTEXname);
+	fprintf(nowBat, "cd \"%%CD%%\\Logs\\BinaryTree\\\n "
+					"C:\\\"MiKTeX 2.9\"\\miktex\\bin\\x64\\pdflatex.exe ");
+	fprintf(nowBat, "%s.tex\" ", logTEXname);
 
 	fclose(nowBat);
 

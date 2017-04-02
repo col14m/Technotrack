@@ -1,1 +1,2 @@
-C:\MiKTeX2.9\miktex\bin\x64\pdflatex.exe "%CD%\Logs\BinaryTree\test8" 
+cd "%CD%\Logs\BinaryTree\
+ C:\"MiKTeX 2.9"\miktex\bin\x64\pdflatex.exe test8.tex" 
