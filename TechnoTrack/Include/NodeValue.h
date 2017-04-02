@@ -10,7 +10,7 @@ class NodeValue
 {
 public:
 	NodeValue();
-	NodeValue(Type type, char data[16]);
+	NodeValue(Type type, char data[16]);//// 
 	NodeValue(Type type, int data);
 	~NodeValue();
 
@@ -54,7 +54,9 @@ NodeValue::NodeValue(Type type, int data) :
 	//strData_({})
 {
 	memset(strData_, 0, 16);
+	_itoa_s(data, strData_, 16, 10);
 }
+
 
 NodeValue::~NodeValue()
 {
@@ -79,7 +81,7 @@ void NodeValue::Dump(FILE *log) const
 {
 	assert(log);
 
-	fprintf(log, "NodeValue (%s) [0x%p] :\n", Ok() ? "ok" : "ERROR", this);
+	//fprintf(log, "NodeValue (%s) [0x%p] :\n", Ok() ? "ok" : "ERROR", this);
 	fprintf(log, "\ttype_\t: %i\n", type_);
 	fprintf(log, "\tdata_[int] : %i\n", intData_);
 	fprintf(log, "\tdata_[str] : %s\n", strData_);

@@ -35,5 +35,11 @@
     <ClInclude Include="Include\NodeValue.h">
       <Filter>Include</Filter>
     </ClInclude>
+    <ClInclude Include="Include\D.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Tex.h">
+      <Filter>Include</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

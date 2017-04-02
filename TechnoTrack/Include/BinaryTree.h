@@ -22,7 +22,10 @@ public:
 
 	BinaryTreeNode *GetLeftNode();
 	BinaryTreeNode *GetRightNode();
-	NodeValue &GetValue();
+	NodeValue &GetValue()
+	{
+		return data_;
+	}
 
 	void InsertLeft(BinaryTreeNode &leftBinaryTreeNode);
 	void InsertLeft(BinaryTreeNode *leftBinaryTreeNode);
@@ -67,7 +70,6 @@ BinaryTreeNode::~BinaryTreeNode()
 	rightNode_ = NULL;
 }
 
-
 bool BinaryTreeNode::Ok() const
 {
 	return true;
@@ -82,7 +84,7 @@ void BinaryTreeNode::Dump() const
 	data_.Dump();
 }
 
-void BinaryTreeNode::Dump(FILE *log) const
+/*void BinaryTreeNode::Dump(FILE *log) const
 {
 	assert(log);
 
@@ -96,6 +98,33 @@ void BinaryTreeNode::Dump(FILE *log) const
 
 	fprintf(log, "BinaryTreeNode0x%p\n", this);
 	
+	if (HaveLeftChild())
+	{
+		fprintf(log, "BinaryTreeNode0x%p->BinaryTreeNode0x%p\n", this, leftNode_);
+		leftNode_->Dump(log);
+	}
+
+	if (HaveRightChild())
+	{
+		fprintf(log, "BinaryTreeNode0x%p->BinaryTreeNode0x%p\n", this, rightNode_);
+		rightNode_->Dump(log);
+	}
+}*/
+
+void BinaryTreeNode::Dump(FILE *log) const
+{
+	assert(log);
+
+	fprintf(log, "\nBinaryTreeNode0x%p\n", this);
+	fprintf(log, "[label = \"BinaryTreeNode(%s) \n", Ok() ? "ok" : "ERROR");
+	//fprintf(log, "[0x%p] data_ : \n", &data_);
+	data_.Dump(log);
+	//fprintf(log, "[0x%p] leftNode\n", leftNode_);
+	fprintf(log, "\"", rightNode_);
+	fprintf(log, "%s];\n", Ok() ? "" : ", color = \"red\", fillcolor = \"#ff7d7d\"");
+
+	fprintf(log, "BinaryTreeNode0x%p\n", this);
+
 	if (HaveLeftChild())
 	{
 		fprintf(log, "BinaryTreeNode0x%p->BinaryTreeNode0x%p\n", this, leftNode_);
@@ -133,7 +162,6 @@ void BinaryTreeNode::DumpToPNG(char *logPNGname) const
 	ConvertVGtoPNG(logPNGname);
 }
 
-
 bool BinaryTreeNode::HaveLeftChild() const
 {
 	return leftNode_ != NULL; //C4800, приведение к типу bool 
@@ -149,24 +177,15 @@ bool BinaryTreeNode::HaveChild() const
 	return leftNode_ || rightNode_;
 }
 
-
 BinaryTreeNode *BinaryTreeNode::GetLeftNode()
 {
-	assert(HaveLeftChild());
 	return leftNode_;
 }
 
 BinaryTreeNode *BinaryTreeNode::GetRightNode()
 {
-	assert(HaveRightChild());
 	return rightNode_;
 }
-
-NodeValue &BinaryTreeNode::GetValue()
-{
-	return data_;
-}
-
 
 void BinaryTreeNode::InsertLeft(BinaryTreeNode *leftBinaryTreeNode)
 {
@@ -192,7 +211,6 @@ void BinaryTreeNode::InsertRight(BinaryTreeNode &rightBinaryTreeNode)
 	rightNode_ = &rightBinaryTreeNode;
 }
 
-
 void ConvertVGtoPNG(char *logPNGname)
 {
 	assert(logPNGname);
@@ -209,7 +227,7 @@ void ConvertVGtoPNG(char *logPNGname)
 	strcpy_s(fullOutPNGname, 40, logPNGname);
 	strcat_s(fullOutPNGname, 40, ".png");
 
-	fprintf(nowBat, "D:\\graphviz-2.38\\release\\bin\\dot ");
+	fprintf(nowBat, "C:\\Graphviz2.38\\bin\\dot ");
 	fprintf(nowBat, "-Tpng \"%%CD%%\\Logs\\BinaryTree\\%s\" ", fullInPNGname);
 	fprintf(nowBat, "   -o \"%%CD%%\\Logs\\BinaryTree\\%s\" \n", fullOutPNGname);
 
@@ -219,8 +237,7 @@ void ConvertVGtoPNG(char *logPNGname)
 	system("cls");
 }
 
-
-BinaryTreeNode operator+(BinaryTreeNode &A, BinaryTreeNode &B)
+BinaryTreeNode &operator+(BinaryTreeNode &A, BinaryTreeNode &B)
 {
 	NodeValue sum(OPERAND, "+");
 	BinaryTreeNode nowNode(sum);
@@ -261,5 +278,16 @@ BinaryTreeNode operator/(BinaryTreeNode &A, BinaryTreeNode &B)
 	nowNode.InsertLeft(A);
 	nowNode.InsertRight(B);
 
-	return nowNode;
+	return *nowNode;
+}
+
+BinaryTreeNode &operator^(BinaryTreeNode &A, BinaryTreeNode &B)
+{
+	NodeValue sum(OPERAND, "^");
+	BinaryTreeNode *nowNode = new BinaryTreeNode(sum);
+
+	nowNode->InsertLeft(A);
+	nowNode->InsertRight(B);
+
+	return *nowNode;
 }
