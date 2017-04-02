@@ -220,46 +220,46 @@ void ConvertVGtoPNG(char *logPNGname)
 }
 
 
-BinaryTreeNode &operator+(BinaryTreeNode &A, BinaryTreeNode &B)
+BinaryTreeNode operator+(BinaryTreeNode &A, BinaryTreeNode &B)
 {
 	NodeValue sum(OPERAND, "+");
-	BinaryTreeNode *nowNode = new BinaryTreeNode(sum);
+	BinaryTreeNode nowNode(sum);
 
-	nowNode->InsertLeft(A);
-	nowNode->InsertRight(B);
+	nowNode.InsertLeft(A);
+	nowNode.InsertRight(B);
 
-	return *nowNode;
+	return nowNode;
 }
 
-BinaryTreeNode &operator-(BinaryTreeNode &A, BinaryTreeNode &B)
+BinaryTreeNode operator-(BinaryTreeNode &A, BinaryTreeNode &B)
 {
-	NodeValue sum(OPERAND, "-");
-	BinaryTreeNode *nowNode = new BinaryTreeNode(sum);
+	NodeValue sub(OPERAND, "-");
+	BinaryTreeNode nowNode(sub);
 
-	nowNode->InsertLeft(A);
-	nowNode->InsertRight(B);
+	nowNode.InsertLeft(A);
+	nowNode.InsertRight(B);
 
-	return *nowNode;
+	return nowNode;
 }
 
-BinaryTreeNode &operator*(BinaryTreeNode &A, BinaryTreeNode &B)
+BinaryTreeNode operator*(BinaryTreeNode &A, BinaryTreeNode &B)
 {
-	NodeValue sum(OPERAND, "*");
-	BinaryTreeNode *nowNode = new BinaryTreeNode(sum);
+	NodeValue mul(OPERAND, "*");
+	BinaryTreeNode nowNode(mul);
 
-	nowNode->InsertLeft(A);
-	nowNode->InsertRight(B);
+	nowNode.InsertLeft(A);
+	nowNode.InsertRight(B);
 
-	return *nowNode;
+	return nowNode;
 }
 
-BinaryTreeNode &operator/(BinaryTreeNode &A, BinaryTreeNode &B)
+BinaryTreeNode operator/(BinaryTreeNode &A, BinaryTreeNode &B)
 {
-	NodeValue sum(OPERAND, "/");
-	BinaryTreeNode *nowNode = new BinaryTreeNode(sum);
+	NodeValue div(OPERAND, "/");
+	BinaryTreeNode nowNode(div);
 
-	nowNode->InsertLeft(A);
-	nowNode->InsertRight(B);
+	nowNode.InsertLeft(A);
+	nowNode.InsertRight(B);
 
-	return *nowNode;
+	return nowNode;
 }

@@ -13,7 +13,7 @@ int main()
 	
 	Node root(t1*t2 + t3*(t2 + t1)/t3);
 	
-	root.DumpToPNG("test4");
+	root.DumpToPNG("test6");
 	
 	system("pause");
 	return 0;
