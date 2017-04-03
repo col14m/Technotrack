@@ -10,18 +10,20 @@ int main()
 	typedef BinaryTreeNode Node;
 
 	
-	Node t1 = *new Node (NodeValue(NUMBER, 2)), t2 = *new Node(NodeValue(NUMBER, 2 )), t3 = *new Node(NodeValue(VARIABLE, "x"));
-	Node root(t2 * t1 * t2);
+	Node t1(NodeValue(NUMBER, 2)),*t2 = new Node(NodeValue(OPERAND, "sin")), t3 (NodeValue(VARIABLE, "x")), *t4 = new Node (NodeValue(VARIABLE, "x")), t5(NodeValue(NUMBER, 2));
+	
+	t2->InsertLeft(t4);
+	//Node root(t2);
 	//t2.InsertLeft(t3);
 	//root = d(root);
 
 
-	(root).DumpToPNG("test8_1");
+	d(*t2).DumpToPNG("test9");
 	//delete t3;
-	DumpTexTree("test8_1", root);
-	SimplyfyNode(root);
-	DumpTexTree("test8_2", root);
-	(root).DumpToPNG("test8_2");
+	//DumpTexTree("test8_1", root);
+	//SimplyfyNode(root);
+	//DumpTexTree("test8_2", root);
+	//(root).DumpToPNG("test8_2");
 	system("pause");
 	return 0;
 }
