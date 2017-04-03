@@ -28,6 +28,9 @@ public:
 		return data_;
 	}
 
+	BinaryTreeNode *CutLeftNode();
+	BinaryTreeNode *CutRightNode();
+
 	void InsertLeft(BinaryTreeNode &leftBinaryTreeNode);
 	void InsertLeft(BinaryTreeNode *leftBinaryTreeNode);
 	void InsertRight(BinaryTreeNode &rightBinaryTreeNode);
@@ -197,6 +200,19 @@ BinaryTreeNode *BinaryTreeNode::GetParentNode()
 	return parentNode_;
 }
 
+BinaryTreeNode *BinaryTreeNode::CutLeftNode()
+{
+	BinaryTreeNode *leftNode = leftNode_;
+	leftNode_ = NULL;
+	return leftNode;
+}
+
+BinaryTreeNode *BinaryTreeNode::CutRightNode()
+{
+	BinaryTreeNode *rightNode = rightNode_;
+	rightNode_ = NULL;
+	return rightNode;
+}
 
 void BinaryTreeNode::InsertLeft(BinaryTreeNode *leftBinaryTreeNode)
 {
