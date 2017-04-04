@@ -1,9 +1,9 @@
 #pragma once
 
 #include "../Include/BinaryTree.h"
-//char* buf = "( ( nil x nil ) + ( nil x nil ) )";
+char* buf = "( ( ( nil x nil ) * ( nil x nil ) ) + ( nil x nil ) )";
 //char* buf = "( nil _sin ( nil x nil ) )";
-char* buf = "( ( nil x nil ) * ( ( ( nil x nil ) - ( ( ( nil x nil ) + ( nil _sin ( nil x nil ) ) ) ^ ( nil 4 nil ) ) ) / ( ( nil x nil ) + ( nil _sin ( ( ( nil x nil ) ^ ( nil 5 nil ) ) + ( nil 4 nil ) ) ) ) ) )";
+//char* buf = "( ( nil x nil ) * ( ( ( nil x nil ) - ( ( ( nil x nil ) + ( nil _sin ( nil x nil ) ) ) ^ ( nil 4 nil ) ) ) / ( ( nil x nil ) + ( nil _sin ( ( ( nil x nil ) ^ ( nil 5 nil ) ) + ( nil 4 nil ) ) ) ) ) )";
 typedef BinaryTreeNode Node;
 
 Node* ReadTree()

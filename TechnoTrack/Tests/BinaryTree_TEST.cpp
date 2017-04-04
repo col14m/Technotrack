@@ -6,6 +6,7 @@
 #include "../Include/Tex.h"
 #include "../Include/ReadTree.h"
 #include "../Include/WriteTree.h"
+#include "../Include/Tex.h"
 
 int main()
 {
@@ -25,7 +26,10 @@ int main()
 	Node* tree = ReadTree();
 	//(*tree).DumpToPNG("test8");
 	Node dTree = d(*tree);
-	dTree.DumpToPNG("test8");
+	//dTree.DumpToPNG("test8");
+	SimplyfyNode(&dTree);
+	system("pause");
+	dTree.DumpToPNG("test9");
 	//WriteTree(tree, ptr);
 	//delete t3;
 	//DumpTexTree("test8_1", root);
