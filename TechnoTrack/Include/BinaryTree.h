@@ -84,11 +84,17 @@ bool BinaryTreeNode::Ok() const
 
 void BinaryTreeNode::Dump() const
 {
-	printf ("BinaryTreeNode_t (%s) [0x%p] :\n", Ok() ? "ok" : "ERROR", this);
-	printf("\t[0x%p] leftNode_\n", leftNode_);
-	printf("\t[0x%p] rightNode_\n", rightNode_);
-	printf("\t[0x%p] data_ : ", &data_);
-	data_.Dump();
+	printf("===========================================\n");
+	printf("BinaryTreeNode_t (%s) [0x%p] :\n", Ok() ? "ok" : "ERROR", this);
+	if (this != NULL)
+	{
+		printf("\t[0x%p] leftNode_\n", leftNode_);
+		printf("\t[0x%p] rightNode_\n", rightNode_);
+		printf("\t[0x%p] data_ : \n", &data_);
+		data_.Dump();
+	}
+	printf("===========================================\n");
+
 }
 
 /*void BinaryTreeNode::Dump(FILE *log) const
@@ -265,7 +271,7 @@ void ConvertVGtoPNG(char *logPNGname)
 	strcpy_s(fullOutPNGname, 40, logPNGname);
 	strcat_s(fullOutPNGname, 40, ".png");
 
-	fprintf(nowBat, "D:\\graphviz-2.38\\release\\bin\\dot ");
+	fprintf(nowBat, "C:\\graphviz2.38\\bin\\dot ");
 	fprintf(nowBat, "-Tpng \"%%CD%%\\Logs\\BinaryTree\\%s\" ", fullInPNGname);
 	fprintf(nowBat, "   -o \"%%CD%%\\Logs\\BinaryTree\\%s\" \n", fullOutPNGname);
 
