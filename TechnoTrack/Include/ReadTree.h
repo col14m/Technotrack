@@ -1,7 +1,7 @@
 #pragma once
 
 #include "../Include/BinaryTree.h"
-char* buf = "( ( nil nil nil ) _sin ( nil x nil ) )";
+char* buf = "( ( nil x nil ) * ( ( ( nil x nil ) - ( ( ( nil x nil ) + ( ( nil 1 nil ) _cos ( nil x nil ) ) ) ^ ( nil 4 nil ) ) ) / ( ( nil x nil ) + ( ( nil 1 nil ) _cos ( ( ( nil x nil ) ^ ( nil 5 nil ) ) + ( nil 4 nil ) ) ) ) ) )";
 typedef BinaryTreeNode Node;
 
 Node* ReadTree()
@@ -92,5 +92,7 @@ Node* ReadTree()
 	
 	return NULL;
 }
+
+
 
 
