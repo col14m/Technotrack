@@ -58,7 +58,7 @@ bool DumpTexNode(BinaryTreeNode *node, FILE *log)
 		if (IS_OPER("/"))
 			fprintf(log, "\\frac{");
 		else if(IS_OPER("+") || IS_OPER("-"))
-			fprintf(log, "( ");
+			fprintf(log, "{( ");
 		else
 			fprintf(log, "{ ");
 
@@ -72,7 +72,7 @@ bool DumpTexNode(BinaryTreeNode *node, FILE *log)
 		if (node->HaveRightChild())
 			check &= DumpTexNode(node->GetRightNode(), log);
 		if (IS_OPER("+") || IS_OPER("-"))
-			fprintf(log, " ) ");
+			fprintf(log, " )}");
 		else
 			fprintf(log, " }");
 	}
@@ -140,16 +140,19 @@ bool ProcessingNode(BinaryTreeNode *node, int num, char* oper, char side)
 	}
 	else if (IS_OPER(oper) && IS_R_NUM(num) && side == 'R')
 	{
+		BinaryTreeNode *tmpNodeA = node->CutLeftNode();
 		BinaryTreeNode *tmpNode = node->CutLeftNode();
 		if (node == node->GetParentNode()->GetLeftNode())
 		{
-			delete node->GetParentNode()->CutLeftNode();
-			node->GetParentNode()->InsertLeft(tmpNode);
+			BinaryTreeNode *tmpNodeB = node->GetParentNode()->CutLeftNode();
+			node->GetParentNode()->InsertLeft(tmpNodeA);
+			delete tmpNodeB;
 		}
 		else if (node == node->GetParentNode()->GetRightNode())
 		{
-			delete node->GetParentNode()->CutRightNode();
-			node->GetParentNode()->InsertRight(tmpNode); 
+			BinaryTreeNode *tmpNodeB = node->GetParentNode()->CutRightNode();
+			node->GetParentNode()->InsertRight(tmpNodeA);
+			delete tmpNodeB;
 		}
 	}
 	else

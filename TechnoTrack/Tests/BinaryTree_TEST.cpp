@@ -20,7 +20,7 @@ int main()
 	BinaryTreeNode *root = ReadTree();
 	//printf("%d", atoi("-10"));
 	//root->DumpToPNG("test10_1");
-	//DumpTexTree("test10_1", *root);
+	DumpTexTree("test10_1", *root);
 	SimplyfyNode(root);
 	root->DumpToPNG("test10_2");
 	DumpTexTree("test10_2", *root);

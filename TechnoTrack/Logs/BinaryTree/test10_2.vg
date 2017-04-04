@@ -1,29 +1,65 @@
 digraph BinaryTreeNode {
 node [color = "green", fontname = "Calibri", fontsize = 12, shape = "rectangle", style = "filled", fillcolor = "#caff70"]; 
 
-BinaryTreeNode0x00000000004C6B10
+BinaryTreeNode0x0000000000236B10
 [label = "BinaryTreeNode(ok) 
 	type_	: 3
 	data_[int] : 0
 	data_[str] : ^
 "];
-BinaryTreeNode0x00000000004C6B10
-BinaryTreeNode0x00000000004C6B10->BinaryTreeNode0x00000000004C6B80
+BinaryTreeNode0x0000000000236B10
+BinaryTreeNode0x0000000000236B10->BinaryTreeNode0x0000000000236B80
 
-BinaryTreeNode0x00000000004C6B80
+BinaryTreeNode0x0000000000236B80
 [label = "BinaryTreeNode(ok) 
 	type_	: 1
 	data_[int] : 5
 	data_[str] : 5
 "];
-BinaryTreeNode0x00000000004C6B80
-BinaryTreeNode0x00000000004C6B10->BinaryTreeNode0x00000000004CA430
+BinaryTreeNode0x0000000000236B80
+BinaryTreeNode0x0000000000236B10->BinaryTreeNode0x0000000000236BF0
 
-BinaryTreeNode0x00000000004CA430
+BinaryTreeNode0x0000000000236BF0
+[label = "BinaryTreeNode(ok) 
+	type_	: 3
+	data_[int] : 0
+	data_[str] : /
+"];
+BinaryTreeNode0x0000000000236BF0
+BinaryTreeNode0x0000000000236BF0->BinaryTreeNode0x000000000023A2E0
+
+BinaryTreeNode0x000000000023A2E0
+[label = "BinaryTreeNode(ok) 
+	type_	: 3
+	data_[int] : 0
+	data_[str] : +
+"];
+BinaryTreeNode0x000000000023A2E0
+BinaryTreeNode0x000000000023A2E0->BinaryTreeNode0x000000000023A350
+
+BinaryTreeNode0x000000000023A350
+[label = "BinaryTreeNode(ok) 
+	type_	: 2
+	data_[int] : 0
+	data_[str] : x
+"];
+BinaryTreeNode0x000000000023A350
+BinaryTreeNode0x000000000023A2E0->BinaryTreeNode0x000000000023A3C0
+
+BinaryTreeNode0x000000000023A3C0
 [label = "BinaryTreeNode(ok) 
 	type_	: 1
-	data_[int] : 0
-	data_[str] : 0
+	data_[int] : 10
+	data_[str] : 10
 "];
-BinaryTreeNode0x00000000004CA430
+BinaryTreeNode0x000000000023A3C0
+BinaryTreeNode0x0000000000236BF0->BinaryTreeNode0x000000000023A580
+
+BinaryTreeNode0x000000000023A580
+[label = "BinaryTreeNode(ok) 
+	type_	: 1
+	data_[int] : 8
+	data_[str] : 8
+"];
+BinaryTreeNode0x000000000023A580
 }
