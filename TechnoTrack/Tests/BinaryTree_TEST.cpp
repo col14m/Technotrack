@@ -24,12 +24,18 @@ int main()
 
 	//printf("%d", atoi("-10"));
 	Node* tree = ReadTree();
-	//(*tree).DumpToPNG("test8");
-	Node dTree = d(*tree);
-	//dTree.DumpToPNG("test8");
-	SimplyfyNode(&dTree);
+	 tree->DumpToPNG("test9");
+	DumpTexTree("THBS", *tree);
 	system("pause");
-	dTree.DumpToPNG("test9");
+	Node dTree = d(*tree);
+	DumpTexTree("THBS-d", dTree);
+	dTree.DumpToPNG("test8");
+	system("pause");
+	
+	SimplyfyNode(&dTree);
+	DumpTexTree("THBS-d-u", dTree);
+	system("pause");
+	//dTree.DumpToPNG("test9");
 	//WriteTree(tree, ptr);
 	//delete t3;
 	//DumpTexTree("test8_1", root);
@@ -37,6 +43,6 @@ int main()
 	//DumpTexTree("test8_2", root);
 	//(root).DumpToPNG("test8_2");
 	fclose(ptr);
-	system("pause");
+	//system("pause");
 	return 0;
 }

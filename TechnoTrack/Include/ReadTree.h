@@ -1,9 +1,14 @@
 #pragma once
 
 #include "../Include/BinaryTree.h"
-char* buf = "( ( ( nil x nil ) * ( nil x nil ) ) + ( nil x nil ) )";
-//char* buf = "( nil _sin ( nil x nil ) )";
-//char* buf = "( ( nil x nil ) * ( ( ( nil x nil ) - ( ( ( nil x nil ) + ( nil _sin ( nil x nil ) ) ) ^ ( nil 4 nil ) ) ) / ( ( nil x nil ) + ( nil _sin ( ( ( nil x nil ) ^ ( nil 5 nil ) ) + ( nil 4 nil ) ) ) ) ) )";
+//char* buf = "( ( ( nil x nil ) * ( nil 1 nil ) ) + ( nil x nil ) )";
+//char* buf = "( ( nil x nil ) + ( nil x nil ) )";
+char* buf = "( ( nil x nil ) * ( ( ( nil x nil ) - ( ( ( nil x nil ) + ( nil _sin ( nil x nil ) ) ) ^ ( nil 4 nil ) ) ) / ( ( nil x nil ) + ( nil _sin ( ( ( nil x nil ) ^ ( nil 5 nil ) ) + ( nil 4 nil ) ) ) ) ) )";
+//char* buf = "( ( nil 1 nil ) / ( ( nil x nil ) + ( nil _sin ( ( ( nil x nil ) ^ ( nil 5 nil ) ) + ( nil 4 nil ) ) ) ) )";
+//char* buf = "( ( nil x nil ) / ( ( nil x nil ) + ( nil 1 nil ) ) )";
+//char*  buf = "( ( nil x nil ) - ( ( ( nil x nil ) + ( nil _sin ( nil x nil ) ) ) ^ ( nil 4 nil ) ) )";
+//char*  buf = "( ( nil x nil ) + ( ( nil x nil ) ^ ( nil 4 nil ) ) )";
+//char*  buf = "( ( nil x nil ) - ( nil x nil ) )";
 typedef BinaryTreeNode Node;
 
 Node* ReadTree()
@@ -33,7 +38,7 @@ Node* ReadTree()
 			buf++;
 			printf("%s\n", buf);
 		}
-		if (('0' <= *buf && *buf <= '9') || *buf == '-')
+		if ('0' <= *buf && *buf <= '9')
 		{
 			tree->GetValue().type_ = NUMBER;
 			int i = 0;
@@ -58,6 +63,7 @@ Node* ReadTree()
 		}
 		else if (*buf == '+' || *buf == '-' || *buf == '*' || *buf == '/' || *buf == '^')
 		{
+			
 			tree->GetValue().type_ = OPERAND;
 			tree->GetValue().strData_[0] = *buf;
 			buf++;

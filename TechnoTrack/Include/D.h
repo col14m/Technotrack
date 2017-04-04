@@ -11,9 +11,10 @@
 
 BinaryTreeNode& d(BinaryTreeNode& tree)
 {
-	NodeValue Val = tree.GetValue();
+	NodeValue& Val = tree.GetValue();
 	if (Val.type_ == NUMBER)
 	{
+		
 		Val.intData_ = 0;
 		strcpy(VAL, "0");
 		return tree;
@@ -34,7 +35,7 @@ BinaryTreeNode& d(BinaryTreeNode& tree)
 		else if (VAL[0] == '*')
 			return d(C(L)) * C(R) + L * d(R);
 		else if (VAL[0] == '/')
-			return (d(C(L)) * C(R) - L * d(R)) / (C(R) * C(R));
+			return ((d(C(L)) * C(R)) - ((L) * d(C(R)))) / (R * C(R));
 		else if (!strcmp(VAL, "_sin"))
 		{
 			strcpy(VAL, "_cos");
