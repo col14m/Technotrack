@@ -3,13 +3,13 @@
 #include "BinaryTree.h"
 #include "NodeValue.h"
 
-#define IS_OPER(oper) (IS_TYPE( OPERAND ) && !strcmp(node->GetValue().strData_, oper) )
 #define IS_TYPE(t) (node->GetValue().type_ == t)
+#define IS_OPER(oper) (IS_TYPE( OPERAND ) && !strcmp(node->GetValue().strData_, oper)) 
 #define L_VAL (node->GetLeftNode()->GetValue())
 #define R_VAL (node->GetRightNode()->GetValue())
-#define IS_L_NUM(data) (L_VAL.type_ == NUMBER && L_VAL.intData_ == data )
-#define IS_R_NUM(data) (R_VAL.type_ == NUMBER && R_VAL.intData_ == data )
-
+#define IS_L_NUM(data) (L_VAL.type_ == NUMBER && L_VAL.intData_ == (data) )
+#define IS_R_NUM(data) (R_VAL.type_ == NUMBER && R_VAL.intData_ == (data) )
+	
 /*
 #define ISN_L_NULL ( node.GetLeftNode()!=NULL && node.GetLeftNode()->GetLeftNode() != NULL \
 					&& node.GetLeftNode()->GetRightNode() != NULL )
@@ -53,28 +53,29 @@
 bool DumpTexNode(BinaryTreeNode *node, FILE *log)
 {
 	bool check = true;
-	if (IS_OPER("\\"))
-		fprintf(log, "frac{");
-	else if (IS_OPER("*"))
-		;
-	else if (!(IS_TYPE(NUMBER) || IS_TYPE(VARIABLE) ))
-		fprintf(log, "( ");
-	
-	if (node->HaveLeftChild())
-		check &= DumpTexNode(node->GetLeftNode(), log);
-	if (IS_OPER("\\"))
-		fprintf(log, "}{");
-	else
-		fprintf(log, " %s ", node->GetValue().strData_);
+	if (node != NULL)
+	{
+		if (IS_OPER("/"))
+			fprintf(log, "\\frac{");
+		else if(IS_OPER("+") || IS_OPER("-"))
+			fprintf(log, "{( ");
+		else
+			fprintf(log, "{ ");
 
-	if (node->HaveRightChild())
-		check &= DumpTexNode(node->GetRightNode(), log);
-	if (IS_OPER("\\"))
-		fprintf(log, "}");
-	else if (IS_OPER("*"))
-		;
-	else if (!(IS_TYPE(NUMBER) || IS_TYPE(VARIABLE)))
-		fprintf(log, " )");
+		if (node->HaveLeftChild())
+			check &= DumpTexNode(node->GetLeftNode(), log);
+		if (IS_OPER("/"))
+			fprintf(log, "}{");
+		else
+			fprintf(log, " %s ", node->GetValue().strData_);
+
+		if (node->HaveRightChild())
+			check &= DumpTexNode(node->GetRightNode(), log);
+		if (IS_OPER("+") || IS_OPER("-"))
+			fprintf(log, " )}");
+		else
+			fprintf(log, " }");
+	}
 
 	return check;
 }
@@ -113,7 +114,7 @@ bool DumpTexTree(const char *logTEXname, BinaryTreeNode &node)
 	fclose(nowBat);
 
 	WinExec(".\\Logs\\BinaryTree\\toTEX.bat", SW_HIDE);
-	system("cls");
+	//system("cls");
 
 	return check;
 }
@@ -133,22 +134,25 @@ bool ProcessingNode(BinaryTreeNode *node, int num, char* oper, char side)
 		else if (node == node->GetParentNode()->GetRightNode())
 		{
 			BinaryTreeNode *tmpNodeB = node->GetParentNode()->CutRightNode();
-			node->GetParentNode()->InsertRight(tmpNodeA);
+			node->GetParentNode()->InsertRight(tmpNodeA); 
 			delete tmpNodeB;
 		}
 	}
 	else if (IS_OPER(oper) && IS_R_NUM(num) && side == 'R')
 	{
+		BinaryTreeNode *tmpNodeA = node->CutLeftNode();
 		BinaryTreeNode *tmpNode = node->CutLeftNode();
 		if (node == node->GetParentNode()->GetLeftNode())
 		{
-			delete node->GetParentNode()->CutLeftNode();
-			node->GetParentNode()->InsertLeft(tmpNode);
+			BinaryTreeNode *tmpNodeB = node->GetParentNode()->CutLeftNode();
+			node->GetParentNode()->InsertLeft(tmpNodeA);
+			delete tmpNodeB;
 		}
 		else if (node == node->GetParentNode()->GetRightNode())
 		{
-			delete node->GetParentNode()->CutRightNode();
-			node->GetParentNode()->InsertRight(tmpNode);
+			BinaryTreeNode *tmpNodeB = node->GetParentNode()->CutRightNode();
+			node->GetParentNode()->InsertRight(tmpNodeA);
+			delete tmpNodeB;
 		}
 	}
 	else
@@ -165,51 +169,101 @@ bool SimplyfyNode(BinaryTreeNode *node)
 	if (node->HaveRightChild())
 		check = SimplyfyNode((node->GetRightNode()));
 
-	ProcessingNode(node, 0, "+", 'L');
-	ProcessingNode(node, 0, "+", 'R');
-	ProcessingNode(node, 1, "*", 'L');
-	ProcessingNode(node, 1, "*", 'R');
-	ProcessingNode(node, 0, "-", 'L');
-	ProcessingNode(node, 0, "-", 'R');
-	ProcessingNode(node, 1, "^", 'R');
-	ProcessingNode(node, 1, "//", 'R');
-
-	if (IS_OPER("*") && IS_R_NUM(0))
+	if (node->HaveLeftChild() && node->HaveRightChild() && L_VAL.type_ == NUMBER && R_VAL.type_ == NUMBER &&
+		node->GetParentNode())
 	{
-		BinaryTreeNode *tmpNodeA = node->CutRightNode();
+		BinaryTreeNode *nodeParent = node->GetParentNode();
+		BinaryTreeNode *newNode = NULL;
+		if (IS_OPER("+"))
+		{
+			newNode = new BinaryTreeNode(NodeValue(NodeValue(NUMBER, L_VAL.intData_ + R_VAL.intData_)));
+		}
+		else if (IS_OPER("-"))
+		{
+			newNode = new BinaryTreeNode(NodeValue(NodeValue(NUMBER, L_VAL.intData_ - R_VAL.intData_)));
+		}
+		else if (IS_OPER("*"))
+		{
+			newNode = new BinaryTreeNode(NodeValue(NodeValue(NUMBER, L_VAL.intData_ * R_VAL.intData_)));
+		}
+		else if (IS_OPER("-"))
+		{
+			newNode = new BinaryTreeNode(NodeValue(NodeValue(NUMBER, L_VAL.intData_ - R_VAL.intData_)));
+		}
+		else if (IS_OPER("/"))
+		{
+			newNode = new BinaryTreeNode(NodeValue(NodeValue(NUMBER, (int)L_VAL.intData_ / R_VAL.intData_)));
+		}
+		else if (IS_OPER("^"))
+		{
+			newNode = new BinaryTreeNode(NodeValue(NodeValue(NUMBER, (int)pow(L_VAL.intData_, R_VAL.intData_))));
+		}
 		if (node == node->GetParentNode()->GetLeftNode())
 		{
-			BinaryTreeNode *tmpNodeB = node->GetParentNode()->CutLeftNode();
-			node->GetParentNode()->InsertLeft(tmpNodeA);
-			delete tmpNodeB;
+			delete nodeParent->CutLeftNode();
+			nodeParent->InsertLeft(newNode);
 		}
 		else if (node == node->GetParentNode()->GetRightNode())
 		{
-			BinaryTreeNode *tmpNodeB = node->GetParentNode()->CutRightNode();
-			node->GetParentNode()->InsertRight(tmpNodeA);
-			delete tmpNodeB;
+			delete nodeParent->CutRightNode();
+			nodeParent->InsertRight(newNode);
 		}
 	}
-	else if (IS_OPER("*") && IS_L_NUM(0))
+	if (node->GetParentNode())
 	{
-		BinaryTreeNode *tmpNode = node->CutLeftNode();
-		if (node == node->GetParentNode()->GetLeftNode())
+		ProcessingNode(node, 0, "+", 'L');
+		ProcessingNode(node, 0, "+", 'R');
+		ProcessingNode(node, 1, "*", 'L');
+		ProcessingNode(node, 1, "*", 'R');
+		ProcessingNode(node, 0, "-", 'L');
+		ProcessingNode(node, 0, "-", 'R');
+		ProcessingNode(node, 1, "^", 'R');
+		ProcessingNode(node, 1, "/", 'R');
+		if (IS_OPER("*") && IS_R_NUM(0))
 		{
-			delete node->GetParentNode()->CutLeftNode();
-			node->GetParentNode()->InsertLeft(tmpNode);
+			printf("=--=0-=0=\n");
+			BinaryTreeNode *tmpNodeA = node->CutRightNode();
+			if (node == node->GetParentNode()->GetLeftNode())
+			{
+				BinaryTreeNode *tmpNodeB = node->GetParentNode()->CutLeftNode();
+				node->GetParentNode()->InsertLeft(tmpNodeA);
+				delete tmpNodeB;
+			}
+			else if (node == node->GetParentNode()->GetRightNode())
+			{
+				BinaryTreeNode *tmpNodeB = node->GetParentNode()->CutRightNode();
+				node->GetParentNode()->InsertRight(tmpNodeA);
+				delete tmpNodeB;
+			}
 		}
-		else if (node == node->GetParentNode()->GetRightNode())
+		else if (IS_OPER("*") && IS_L_NUM(0))
 		{
-			delete node->GetParentNode()->CutRightNode();
-			node->GetParentNode()->InsertRight(tmpNode);
-		}
+			printf("=--=0-=0=\n");
+			BinaryTreeNode *tmpNode = node->CutLeftNode();
+			if (node == node->GetParentNode()->GetLeftNode())
+			{
+				BinaryTreeNode *tmpNodeB = node->GetParentNode()->CutLeftNode();
+				node->GetParentNode()->InsertLeft(tmpNode);
+				delete tmpNodeB;
+			}
+			else if (node == node->GetParentNode()->GetRightNode())
+			{
+				BinaryTreeNode *tmpNodeB = node->GetParentNode()->CutRightNode();
+				node->GetParentNode()->InsertRight(tmpNode);
+				delete tmpNodeB;
+			}
+		}	
 	}
-	
 
-	
-
-	return check;
+		return check;
 }
+
+#undef IS_OPER
+#undef IS_TYPE
+#undef L_VAL
+#undef R_VAL
+#undef IS_L_NUM
+#undef IS_R_NUM
 
 /*
 bool SimplyfyNode(BinaryTreeNode &node)

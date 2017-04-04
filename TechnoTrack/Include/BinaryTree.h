@@ -261,6 +261,7 @@ void ConvertVGtoPNG(char *logPNGname)
 
 	FILE *nowBat = NULL;
 	fopen_s(&nowBat, ".\\Logs\\BinaryTree\\toPNG.bat", "w");
+	//printf("+++++++++++++\n");
 	assert(nowBat);
 
 	char fullInPNGname[40];
@@ -271,12 +272,12 @@ void ConvertVGtoPNG(char *logPNGname)
 	strcpy_s(fullOutPNGname, 40, logPNGname);
 	strcat_s(fullOutPNGname, 40, ".png");
 
-	fprintf(nowBat, "E:\\Graphviz2.38\\bin\\dot ");
+	fprintf(nowBat, "C:\\graphviz2.38\\bin\\dot ");
 	fprintf(nowBat, "-Tpng \"%%CD%%\\Logs\\BinaryTree\\%s\" ", fullInPNGname);
 	fprintf(nowBat, "   -o \"%%CD%%\\Logs\\BinaryTree\\%s\" \n", fullOutPNGname);
 
 	fclose(nowBat);
-
+	//printf("++++++----------------+++++++\n");
 	WinExec(".\\Logs\\BinaryTree\\toPNG.bat", SW_HIDE);
 	//system("cls");
 }
