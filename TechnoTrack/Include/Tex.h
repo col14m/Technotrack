@@ -9,6 +9,8 @@
 #define R_VAL (node->GetRightNode()->GetValue())
 #define IS_L_NUM(data) (L_VAL.type_ == NUMBER && L_VAL.intData_ == data )
 #define IS_R_NUM(data) (R_VAL.type_ == NUMBER && R_VAL.intData_ == data )
+//#define COUNT(oper) /
+		
 
 /*
 #define ISN_L_NULL ( node.GetLeftNode()!=NULL && node.GetLeftNode()->GetLeftNode() != NULL \
@@ -165,6 +167,46 @@ bool SimplyfyNode(BinaryTreeNode *node)
 	if (node->HaveRightChild())
 		check = SimplyfyNode((node->GetRightNode()));
 
+	if (node->HaveLeftChild() && node->HaveRightChild() && L_VAL.type_ == NUMBER && R_VAL.type_ == NUMBER && 
+		node->GetParentNode() )
+	{
+		BinaryTreeNode *nodeParent = node->GetParentNode();
+		BinaryTreeNode *newNode = NULL;
+		if (IS_OPER("+"))
+		{
+			newNode = new BinaryTreeNode(NodeValue(NodeValue(NUMBER, L_VAL.intData_ + R_VAL.intData_)));
+		}
+		else if (IS_OPER("-"))
+		{
+			newNode = new BinaryTreeNode(NodeValue(NodeValue(NUMBER, L_VAL.intData_ - R_VAL.intData_)));
+		}
+		else if (IS_OPER("*"))
+		{
+			newNode = new BinaryTreeNode(NodeValue(NodeValue(NUMBER, L_VAL.intData_ * R_VAL.intData_)));
+		}
+		else if (IS_OPER("-"))
+		{
+			newNode = new BinaryTreeNode(NodeValue(NodeValue(NUMBER, L_VAL.intData_ - R_VAL.intData_)));
+		}
+		else if (IS_OPER("//"))
+		{
+			newNode = new BinaryTreeNode(NodeValue(NodeValue(NUMBER, L_VAL.intData_ / R_VAL.intData_)));
+		}
+		else if (IS_OPER("^"))
+		{
+			newNode = new BinaryTreeNode(NodeValue(NodeValue(NUMBER, pow(L_VAL.intData_, R_VAL.intData_))));
+		}
+		if (node == node->GetParentNode()->GetLeftNode())
+		{
+			delete nodeParent->CutLeftNode();
+			nodeParent->InsertLeft(newNode);
+		}
+		else if (node == node->GetParentNode()->GetRightNode())
+		{
+			delete nodeParent->CutLeftNode();
+			nodeParent->InsertRight(newNode);
+		}
+	}
 	ProcessingNode(node, 0, "+", 'L');
 	ProcessingNode(node, 0, "+", 'R');
 	ProcessingNode(node, 1, "*", 'L');
@@ -204,10 +246,6 @@ bool SimplyfyNode(BinaryTreeNode *node)
 			node->GetParentNode()->InsertRight(tmpNode);
 		}
 	}
-	
-
-	
-
 	return check;
 }
 
