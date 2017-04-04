@@ -1,83 +1,20 @@
 digraph BinaryTreeNode {
 node [color = "green", fontname = "Calibri", fontsize = 12, shape = "rectangle", style = "filled", fillcolor = "#caff70"]; 
 
-BinaryTreeNode0x00000060F28A2C90
+BinaryTreeNode0x0000003C2E0D86F0
 [label = "BinaryTreeNode(ok) 
 	type_	: 3
 	data_[int] : 0
-	data_[str] : /
+	data_[str] : sin
 "];
-BinaryTreeNode0x00000060F28A2C90
-BinaryTreeNode0x00000060F28A2C90->BinaryTreeNode0x00000060F28A8680
+BinaryTreeNode0x0000003C2E0D86F0
+BinaryTreeNode0x0000003C2E0D86F0->BinaryTreeNode0x0000003C2E0D8760
 
-BinaryTreeNode0x00000060F28A8680
-[label = "BinaryTreeNode(ok) 
-	type_	: 3
-	data_[int] : 0
-	data_[str] : -
-"];
-BinaryTreeNode0x00000060F28A8680
-BinaryTreeNode0x00000060F28A8680->BinaryTreeNode0x00000060F28A86F0
-
-BinaryTreeNode0x00000060F28A86F0
+BinaryTreeNode0x0000003C2E0D8760
 [label = "BinaryTreeNode(ok) 
 	type_	: 2
 	data_[int] : 0
 	data_[str] : x
 "];
-BinaryTreeNode0x00000060F28A86F0
-BinaryTreeNode0x00000060F28A8680->BinaryTreeNode0x00000060F28A8760
-
-BinaryTreeNode0x00000060F28A8760
-[label = "BinaryTreeNode(ok) 
-	type_	: 3
-	data_[int] : 0
-	data_[str] : ^
-"];
-BinaryTreeNode0x00000060F28A8760
-BinaryTreeNode0x00000060F28A8760->BinaryTreeNode0x00000060F28A87D0
-
-BinaryTreeNode0x00000060F28A87D0
-[label = "BinaryTreeNode(ok) 
-	type_	: 2
-	data_[int] : 0
-	data_[str] : x
-"];
-BinaryTreeNode0x00000060F28A87D0
-BinaryTreeNode0x00000060F28A8760->BinaryTreeNode0x00000060F28A8840
-
-BinaryTreeNode0x00000060F28A8840
-[label = "BinaryTreeNode(ok) 
-	type_	: 1
-	data_[int] : 4
-	data_[str] : 4
-"];
-BinaryTreeNode0x00000060F28A8840
-BinaryTreeNode0x00000060F28A2C90->BinaryTreeNode0x00000060F28ADC30
-
-BinaryTreeNode0x00000060F28ADC30
-[label = "BinaryTreeNode(ok) 
-	type_	: 3
-	data_[int] : 0
-	data_[str] : +
-"];
-BinaryTreeNode0x00000060F28ADC30
-BinaryTreeNode0x00000060F28ADC30->BinaryTreeNode0x00000060F28ADD80
-
-BinaryTreeNode0x00000060F28ADD80
-[label = "BinaryTreeNode(ok) 
-	type_	: 2
-	data_[int] : 0
-	data_[str] : x
-"];
-BinaryTreeNode0x00000060F28ADD80
-BinaryTreeNode0x00000060F28ADC30->BinaryTreeNode0x00000060F28ADBC0
-
-BinaryTreeNode0x00000060F28ADBC0
-[label = "BinaryTreeNode(ok) 
-	type_	: 1
-	data_[int] : 7
-	data_[str] : 7
-"];
-BinaryTreeNode0x00000060F28ADBC0
+BinaryTreeNode0x0000003C2E0D8760
 }

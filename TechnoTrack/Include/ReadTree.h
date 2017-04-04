@@ -1,7 +1,7 @@
 #pragma once
 
 #include "../Include/BinaryTree.h"
-char* buf = "( ( ( nil x nil ) - ( ( nil x nil ) ^ ( nil 4 nil ) ) ) / ( ( nil x nil ) + ( nil 7 nil ) ) )";
+char* buf = "( ( nil nil nil ) _sin ( nil x nil ) )";
 typedef BinaryTreeNode Node;
 
 Node* ReadTree()
@@ -21,7 +21,6 @@ Node* ReadTree()
 		buf += 2;
 		printf("%s\n", buf);
 		tree->InsertLeft(ReadTree());
-		//buf += 2;
 		while (*buf == ')')
 		{
 
@@ -31,9 +30,8 @@ Node* ReadTree()
 				return NULL;
 			buf++;
 			printf("%s\n", buf);
-			//return tree;
 		}
-		if ('0' <= *buf && *buf <= '9')
+		if (('0' <= *buf && *buf <= '9') || *buf == '-')
 		{
 			tree->GetValue().type_ = NUMBER;
 			int i = 0;
@@ -42,8 +40,8 @@ Node* ReadTree()
 				tree->GetValue().strData_[i] = *buf;
 				i++;
 				buf++;
-				assert(*buf == ' ');
 			}
+			tree->GetValue().strData_[i] = '\0';
 			buf++;
 			printf("%s\n", buf);
 			tree->GetValue().intData_ = atoi(tree->GetValue().strData_);
@@ -71,7 +69,15 @@ Node* ReadTree()
 			buf += 5;
 			printf("%s\n", buf);
 		}
-		
+		else if (!strncmp("nil", buf, 3))
+		{
+			buf += 8;
+			strcpy(tree->GetValue().strData_, "nil");
+			printf("%s\n", buf);
+			delete tree;
+			tree = NULL;
+			return NULL;
+		}
 
 		else
 		{
@@ -79,8 +85,7 @@ Node* ReadTree()
 		}
 		
 		tree->InsertRight(ReadTree());
-		//buf++;
-		//buf++;
+		
 		return tree;
 		
 	}
