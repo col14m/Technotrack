@@ -44,5 +44,8 @@
     <ClInclude Include="Include\ReadTree.h">
       <Filter>Include</Filter>
     </ClInclude>
+    <ClInclude Include="Include\WriteTree.h">
+      <Filter>Include</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

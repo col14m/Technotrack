@@ -35,10 +35,10 @@ BinaryTreeNode& d(BinaryTreeNode& tree)
 			return d(C(L)) * C(R) + L * d(R);
 		else if (VAL[0] == '/')
 			return (d(C(L)) * C(R) - L * d(R)) / (C(R) * C(R));
-		else if (!strcmp(VAL, "sin"))
+		else if (!strcmp(VAL, "_sin"))
 		{
-			strcpy(VAL, "cos");
-			return tree * d(C(L));
+			strcpy(VAL, "_cos");
+			return tree * d(C(R));
 		}
 		else if (VAL[0] == '^')
 		{
