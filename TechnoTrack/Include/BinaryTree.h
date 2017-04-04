@@ -22,10 +22,14 @@ public:
 
 	BinaryTreeNode *GetLeftNode();
 	BinaryTreeNode *GetRightNode();
+	BinaryTreeNode *GetParentNode();
 	NodeValue &GetValue()
 	{
 		return data_;
 	}
+
+	BinaryTreeNode *CutLeftNode();
+	BinaryTreeNode *CutRightNode();
 
 	void InsertLeft(BinaryTreeNode &leftBinaryTreeNode);
 	void InsertLeft(BinaryTreeNode *leftBinaryTreeNode);
@@ -37,7 +41,7 @@ public:
 	bool HaveChild() const;
 
 private:
-	BinaryTreeNode *leftNode_, *rightNode_;
+	BinaryTreeNode *leftNode_, *rightNode_, *parentNode_;
 	NodeValue data_;
 };
 void ConvertVGtoPNG(char *logPNGname);
@@ -46,20 +50,23 @@ void ConvertVGtoPNG(char *logPNGname);
 BinaryTreeNode::BinaryTreeNode() :
 	leftNode_(NULL),
 	rightNode_(NULL),
+	parentNode_(NULL),
 	data_(NodeValue())
 {}
 
 BinaryTreeNode::BinaryTreeNode(const NodeValue& object) :
 	leftNode_(NULL),
 	rightNode_(NULL),
+	parentNode_(NULL),
 	data_(NodeValue(object))
 {}
 
-BinaryTreeNode::BinaryTreeNode(const BinaryTreeNode &node) :
-	leftNode_(node.HaveLeftChild() ? new BinaryTreeNode(*node.leftNode_) : NULL),
-	rightNode_(node.HaveRightChild() ? new BinaryTreeNode(*node.rightNode_) : NULL),
-	data_(NodeValue(node.data_))
-{}
+BinaryTreeNode::BinaryTreeNode(const BinaryTreeNode &node)
+{
+	InsertLeft(node.HaveLeftChild() ? new BinaryTreeNode(*node.leftNode_) : NULL);
+	InsertRight(node.HaveRightChild() ? new BinaryTreeNode(*node.rightNode_) : NULL);
+	data_ = NodeValue(node.data_);
+}
 
 BinaryTreeNode::~BinaryTreeNode()
 {
@@ -77,11 +84,17 @@ bool BinaryTreeNode::Ok() const
 
 void BinaryTreeNode::Dump() const
 {
-	printf ("BinaryTreeNode_t (%s) [0x%p] :\n", Ok() ? "ok" : "ERROR", this);
-	printf("\t[0x%p] leftNode_\n", leftNode_);
-	printf("\t[0x%p] rightNode_\n", rightNode_);
-	printf("\t[0x%p] data_ : ", &data_);
-	data_.Dump();
+	printf("===========================================\n");
+	printf("BinaryTreeNode_t (%s) [0x%p] :\n", Ok() ? "ok" : "ERROR", this);
+	if (this != NULL)
+	{
+		printf("\t[0x%p] leftNode_\n", leftNode_);
+		printf("\t[0x%p] rightNode_\n", rightNode_);
+		printf("\t[0x%p] data_ : \n", &data_);
+		data_.Dump();
+	}
+	printf("===========================================\n");
+
 }
 
 /*void BinaryTreeNode::Dump(FILE *log) const
@@ -93,7 +106,8 @@ void BinaryTreeNode::Dump() const
 	fprintf(log, "[0x%p] data_ : \n", &data_);
 	data_.Dump(log);
 	fprintf(log, "[0x%p] leftNode\n", leftNode_);
-	fprintf(log, "[0x%p] rightNode\n\"", rightNode_);
+	fprintf(log, "[0x%p] rightNode\n", rightNode_);
+	fprintf(log, "[0x%p] parentNode\n\"", parentNode_);
 	fprintf(log, "%s];\n", Ok() ? "" : ", color = \"red\", fillcolor = \"#ff7d7d\"");
 
 	fprintf(log, "BinaryTreeNode0x%p\n", this);
@@ -177,6 +191,7 @@ bool BinaryTreeNode::HaveChild() const
 	return leftNode_ || rightNode_;
 }
 
+
 BinaryTreeNode *BinaryTreeNode::GetLeftNode()
 {
 	return leftNode_;
@@ -187,27 +202,56 @@ BinaryTreeNode *BinaryTreeNode::GetRightNode()
 	return rightNode_;
 }
 
+BinaryTreeNode *BinaryTreeNode::GetParentNode()
+{
+	return parentNode_;
+}
+
+BinaryTreeNode *BinaryTreeNode::CutLeftNode()
+{
+	BinaryTreeNode *leftNode = leftNode_;
+	leftNode_ = NULL;
+	return leftNode;
+}
+
+BinaryTreeNode *BinaryTreeNode::CutRightNode()
+{
+	BinaryTreeNode *rightNode = rightNode_;
+	rightNode_ = NULL;
+	return rightNode;
+}
+
 void BinaryTreeNode::InsertLeft(BinaryTreeNode *leftBinaryTreeNode)
 {
 	assert(!leftNode_);
-	
+	if (leftBinaryTreeNode)
+	{
+		leftBinaryTreeNode->parentNode_ = this;
+	}
 	leftNode_ = leftBinaryTreeNode;
 }
 
 void BinaryTreeNode::InsertLeft(BinaryTreeNode &leftBinaryTreeNode)
 {
+	assert(!leftNode_);
+	leftBinaryTreeNode.parentNode_ = this;
 	leftNode_ = &leftBinaryTreeNode;
 }
 
 void BinaryTreeNode::InsertRight(BinaryTreeNode *rightBinaryTreeNode)
 {
 	assert(!rightNode_);
-
+	if (rightBinaryTreeNode)
+	{
+		rightBinaryTreeNode->parentNode_ = this;
+	}
 	rightNode_ = rightBinaryTreeNode;
 }
 
 void BinaryTreeNode::InsertRight(BinaryTreeNode &rightBinaryTreeNode)
 {
+	assert(!rightNode_);
+	rightBinaryTreeNode.parentNode_ = this;
 	rightNode_ = &rightBinaryTreeNode;
 }
 
@@ -283,8 +327,8 @@ BinaryTreeNode &operator/(BinaryTreeNode &A, BinaryTreeNode &B)
 
 BinaryTreeNode &operator^(BinaryTreeNode &A, BinaryTreeNode &B)
 {
-	NodeValue sum(OPERAND, "^");
-	BinaryTreeNode *nowNode = new BinaryTreeNode(sum);
+	NodeValue deg(OPERAND, "^");
+	BinaryTreeNode *nowNode = new BinaryTreeNode(deg);
 
 	nowNode->InsertLeft(A);
 	nowNode->InsertRight(B);
