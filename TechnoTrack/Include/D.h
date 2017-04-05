@@ -41,11 +41,17 @@ BinaryTreeNode& d(BinaryTreeNode& tree)
 			strcpy(VAL, "_cos");
 			return tree * d(C(R));
 		}
+		else if (!strcmp(VAL, "_cos"))
+		{
+			strcpy(VAL, "_cos");
+			BinaryTreeNode *Num = new BinaryTreeNode(NodeValue(NUMBER, -1));
+			return (tree * *Num) * d(C(R));
+		}
 		else if (VAL[0] == '^')
 		{
 			BinaryTreeNode *NodeR = &C(R);
-			tree.GetRightNode()->GetValue().intData_--;
-			_itoa_s(tree.GetRightNode()->GetValue().intData_, tree.GetRightNode()->GetValue().strData_,  16, 10);
+			(R).GetValue().intData_--;
+			_itoa_s((R).GetValue().intData_, (R).GetValue().strData_,  16, 10);
 			return  ((tree * *NodeR) * d(C(L)));
 		}
 		else

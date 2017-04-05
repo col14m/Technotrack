@@ -24,7 +24,7 @@ int main()
 
 	//printf("%d", atoi("-10"));
 	Node* tree = ReadTree();
-	 tree->DumpToPNG("test9");
+	tree->DumpToPNG("test9");
 	DumpTexTree("THBS", *tree);
 	system("pause");
 	Node dTree = d(*tree);
@@ -36,7 +36,7 @@ int main()
 	DumpTexTree("THBS-d-u", dTree);
 	system("pause");
 	//dTree.DumpToPNG("test9");
-	//WriteTree(tree, ptr);
+	WriteTree(tree, ptr);
 	//delete t3;
 	//DumpTexTree("test8_1", root);
 	//SimplyfyNode(root);

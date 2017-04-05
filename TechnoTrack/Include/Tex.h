@@ -66,6 +66,8 @@ bool DumpTexNode(BinaryTreeNode *node, FILE *log)
 			check &= DumpTexNode(node->GetLeftNode(), log);
 		if (IS_OPER("/"))
 			fprintf(log, "}{");
+		else if(node->GetValue().strData_[0] == '_' )	
+			fprintf(log, " %s ", node->GetValue().strData_+1);
 		else
 			fprintf(log, " %s ", node->GetValue().strData_);
 
@@ -95,13 +97,13 @@ bool DumpTexTree(const char *logTEXname, BinaryTreeNode &node)
 	assert(log);
 
 	fprintf(log, "\\documentclass{proc}\n"
-				 "\\begin{document}\n"
+		"\\begin{document}\n"
 				 "$ ");
 
 	check = DumpTexNode(&node, log);
 
 	fprintf(log, " $\n"
-				 "\\end{document}");
+				 "\\end{document}\n");
 	fclose(log);
 
 	FILE *nowBat = NULL;

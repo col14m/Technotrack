@@ -2,16 +2,16 @@
 #include "BinaryTree.h"
 #include <stdio.h>
 
-typedef BinaryTreeNode Node;
+//typedef BinaryTreeNode Node;
 
-int WriteTree(Node *Tree, FILE *File)
+int WriteTree(BinaryTreeNode *Tree, FILE *File)
 {
 	assert(Tree);
 	assert(File);
 	fprintf(File, "( ");
 	if (Tree->HaveLeftChild())
 	{
-		//Tree->DumpToPNG("test8");
+		
 		WriteTree(Tree->GetLeftNode(), File);
 	}
 	else
@@ -19,7 +19,7 @@ int WriteTree(Node *Tree, FILE *File)
 	fprintf(File, "%s ", Tree->GetValue().strData_);
 	if (Tree->HaveRightChild())
 	{
-		//Tree->DumpToPNG("test8");
+		
 		WriteTree(Tree->GetRightNode(), File);
 	}
 	else
